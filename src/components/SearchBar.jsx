@@ -19,7 +19,7 @@ const SearchBar = ({ onSubmit }) => {
 	return (
 		<div id='form'>
 			<form action='' onSubmit={handleFormSubmit}>
-				<Input variant='outline' id='car' placeholder='Basic usage' size='lg'  onChange={handleChange} value={term} />
+				<Input variant='filled' id='car' placeholder='Basic usage' size='lg'  onChange={handleChange} value={term} />
 			</form>
 		</div>
 	);
