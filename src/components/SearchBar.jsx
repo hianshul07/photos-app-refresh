@@ -1,28 +1,28 @@
-/* eslint-disable react/prop-types */
-import { useState } from "react";
+import { useState } from 'react';
+import { Input } from '@chakra-ui/react';
+import './SearchBar.css'
+
 
 const SearchBar = ({ onSubmit }) => {
+	const [term, setTerm] = useState('');
 
-  const [term, setTerm] = useState('')
+	const handleFormSubmit = (event) => {
+		event.preventDefault();
+		onSubmit(term);
+	};
 
-  const handleFormSubmit = (event) => {
-    event.preventDefault();
-    onSubmit(term);
-    
-  };
+	const handleChange = (event) => {
+		// console.log(event.target.value);
+		setTerm(event.target.value);
+	};
 
-  const handleChange = (event) => {
-    // console.log(event.target.value);
-    setTerm(event.target.value)
-  }
-
-  return (
-    <div>
-      <form action='' onSubmit={handleFormSubmit}>
-        <input type='text' name='' id='' value={term} onChange={handleChange}/>
-      </form>
-    </div>
-  );
+	return (
+		<div id='form'>
+			<form action='' onSubmit={handleFormSubmit}>
+				<Input variant='outline' id='car' placeholder='Basic usage' size='lg'  onChange={handleChange} value={term} />
+			</form>
+		</div>
+	);
 };
 
 export default SearchBar;
